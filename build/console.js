@@ -5,10 +5,13 @@ var requireAll = require("require-all-to-camel");
 
 var Console = (function () {
   var Console = function Console(options) {
-    this.prompt = options.prompt || "console";
-    this.directories = options.loadDirectories;
-
-    this.loadDirectories(options.loadDirectories);
+    if (options) {
+      this.directories = options.loadDirectories;
+      this.loadDirectories(options.loadDirectories);
+      this.prompt = options.prompt || "console";
+    } else {
+      this.prompt = "console";
+    }
   };
 
   Console.prototype.loadDirectories = function (directories) {

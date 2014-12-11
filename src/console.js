@@ -3,10 +3,13 @@ var requireAll = require('require-all-to-camel');
 
 class Console {
   constructor(options) {
-    this.prompt = options.prompt || 'console';
-    this.directories = options.loadDirectories;
-
-    this.loadDirectories(options.loadDirectories);
+    if (options) {
+      this.directories = options.loadDirectories;
+      this.loadDirectories(options.loadDirectories);
+      this.prompt = options.prompt || 'console';
+    } else {
+      this.prompt = 'console';
+    }
   }
   loadDirectories(directories) {
     var _this = this;

@@ -1,4 +1,4 @@
-var Console = require(__dirname+'/../build');
+var Console = require(__dirname+'/../');
 
 if (!process.env.GATEWAYD_PATH) {
   throw new Error('GATEWAYD_PATH must be set in Environment');
